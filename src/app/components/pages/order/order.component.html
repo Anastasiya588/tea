@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="order p-lg-4 p-1 py-4 m-auto col-lg-6 col-md-8 col-sm-10">
+
+    <div *ngIf="!orderSuccess">
+      <h2 class="text-center fw-bold mb-3 mb-lg-5 h2 fs-2 display-1">Сделать заказ</h2>
+      <form [formGroup]="orderForm" (ngSubmit)="onSubmit()" class="row g-3 mt-3 wow animate__fadeInRight" id="orderForm"
+            method="post">
+        <div class="col-12">
+          <label for="inputProduct" class="form-label">Товар</label>
+          <input formControlName="Product" type="text" class="form-control" id="inputProduct">
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <label for="inputName" class="form-label">Имя</label>
+          <input type="text" class="form-control" id="inputName" formControlName="Name" required>
+          <div
+            *ngIf="orderForm.get('Name')?.invalid && (orderForm.get('Name')?.touched || orderForm.get('Name')?.dirty)">
+            <small class="text-danger">Введите корректное имя</small>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <label for="inputSurName" class="form-label">Фамилия</label>
+          <input type="text" class="form-control" id="inputSurName" formControlName="Surname" required>
+          <div
+            *ngIf="orderForm.get('Surname')?.invalid && (orderForm.get('Surname')?.touched || orderForm.get('Surname')?.dirty)">
+            <small class="text-danger">Введите корректную фамилию.</small>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <label for="inputPhone" class="form-label">Телефон</label>
+          <input type="text" class="form-control" id="inputPhone" formControlName="Phone" required>
+          <div
+            *ngIf="orderForm.get('Phone')?.invalid && (orderForm.get('Phone')?.touched || orderForm.get('Phone')?.dirty)">
+            <small class="text-danger">Введите корректный телефон.</small>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-4">
+          <label for="inputCountry" class="form-label">Страна</label>
+          <input type="text" class="form-control" id="inputCountry" formControlName="Country" required>
+          <div
+            *ngIf="orderForm.get('Country')?.invalid && (orderForm.get('Country')?.touched || orderForm.get('Country')?.dirty)">
+            <small class="text-danger">Введите страну.</small>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-4">
+          <label for="inputIndex" class="form-label">Индекс</label>
+          <input type="text" class="form-control" id="inputIndex" formControlName="Index" required>
+          <div
+            *ngIf="orderForm.get('Index')?.invalid && (orderForm.get('Index')?.touched || orderForm.get('Index')?.dirty)">
+            <small class="text-danger">Введите индекс.</small>
+          </div>
+        </div>
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">Адрес</label>
+          <input type="text" class="form-control" id="inputAddress" formControlName="Address" required>
+          <div
+            *ngIf="orderForm.get('Address')?.invalid && (orderForm.get('Address')?.touched || orderForm.get('Address')?.dirty)">
+            <small class="text-danger">Введите корректный адрес.</small>
+          </div>
+        </div>
+        <div class="col-12">
+          <label for="inputComment" class="form-label">Комментарий к заказу</label>
+          <input type="text" class="form-control" id="inputComment" formControlName="Comment">
+        </div>
+        <div class="col-12 d-flex align-items-center">
+          <button type="submit" [disabled]="isLoading"
+                  class="btn__order btn btn-primary hvr-grow-rotate py-2 px-lg-5 px-md-4 px-sm-4 px-4">
+            Отправить
+          </button>
+          <div *ngIf="orderError" class="error-message ms-3">
+            <span class="text-danger">{{ errorMessage }}</span>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div *ngIf="orderSuccess" class="text-success fw-bold fs-1 text-center">Спасибо за заказ!</div>
+  </div>
+
+</div>

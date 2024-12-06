@@ -1,0 +1,11 @@
+<div class="container p-0 m-auto py-3 py-lg-5 px-2 text-center">
+  <div *ngIf="product">
+    <img [src]="product.image" [style]="{'width':'500px'}" alt="{{ product.title }}" class="img-fluid">
+    <h2 class="fw-bold h3 fs-3 mb-2 display-1">{{ product.title }}</h2>
+    <p class="fw-bold">Цена: {{ product.price | currency }}</p>
+    <p class="card-text text-lg-start text-center mt-1 mb-5">{{ product.description }}</p>
+    <button class="btn btn-primary py-2 px-lg-5 px-md-4 px-sm-4 px-4 m-0 mt-auto text-decoration-none"  (click)="buyProduct()" >Купить</button>
+  </div>
+</div>
+
+
