@@ -1,6 +1,6 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from "rxjs";
-import {PopUpService} from "../../../services/pop-up.service";
+import {PopUpService} from "../../shared/services/pop-up.service";
 
 declare var $: any;
 
@@ -9,7 +9,7 @@ declare var $: any;
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent implements OnInit, AfterViewInit {
+export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
   public popupVisible: boolean = false;
   private popupSubscription: Subscription | undefined;
 

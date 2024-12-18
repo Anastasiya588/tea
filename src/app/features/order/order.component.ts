@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
-import {OrderResponseInterface} from "../../../interfaces/order-response.interface";
 import {ActivatedRoute} from "@angular/router";
 import { of } from 'rxjs';
 import { catchError, delay, switchMap, tap } from 'rxjs/operators';
+import {OrderResponseInterface} from "../../interfaces/order-response.interface";
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
